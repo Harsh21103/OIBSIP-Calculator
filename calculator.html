@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        form{
+        width:400px;
+        height:500px;
+        margin: 20px auto;  
+        border: 5px solid rgb(246, 250, 247);
+        border-radius: 10px;
+        padding: 100px;
+        text-align: center;
+        background-color: rgb(81, 88, 83);
+        }
+        h1 {
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        input:hover
+        {
+        background-color: rgb(162, 95, 43);
+        }
+        *{
+        margin: 0;
+        padding: 0;
+        }
+        .btn{
+        width: 100px;
+        height:80px;
+        font-size: 25px;
+        margin: 2px;
+        cursor: pointer;
+        background-color:gray;
+        color: white;
+        border-radius:10px;
+        }
+        .textview{
+        width: 400px;
+        margin: 6px;
+        font-size: 25px;
+        padding: 5px;
+        background-color: rgb(253, 254, 255);
+        border-radius:5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function get(number){
+            document.form1.textview.value = document.form1.textview.value + number;
+        }
+        function calculate(){
+            var exp=document.form1.textview.value;
+            if(exp){
+                document.form1.textview.value=eval(exp)
+            }
+        }
+        function back(){
+            var exp=document.form1.textview.value;
+            document.form1.textview.value = exp.substring(0,exp.length-1);
+        }
+    </script>
+</head>
+<body>
+    <div>
+    <form name="form1">
+        <h1>Calculator</h1>
+        <input  class="textview" name="textview">
+        <table>
+            
+            <tr>
+                <td><input class="btn" type="button" value="clear" onclick= " form1.textview.value= '' "></td>
+                <td><input class="btn"type="button" value="Back" onclick="back()"></td>
+                <td><input class="btn"type="button" value="/" onclick="get('/')"></td>
+                <td><input class="btn"type="button" value="*" onclick="get('*')"></td>
+            </tr>
+            <tr>
+                <td><input class="btn"type="button" value="7" onclick="get(7)"></td>
+                <td><input class="btn"type="button" value="8" onclick="get(8)"></td>
+                <td><input class="btn"type="button" value="9" onclick="get(9)"></td>
+                <td><input class="btn"type="button" value="-" onclick="get('-')"></td>
+            </tr>
+            <tr>
+                <td><input class="btn"type="button" value="4" onclick="get(4)"></td>
+                <td><input class="btn"type="button" value="5" onclick="get(5)"></td>
+                <td><input class="btn"type="button" value="6" onclick="get(6)"></td>
+                <td><input class="btn"type="button" value="+" onclick="get('+')"></td>
+            </tr>
+            <tr>
+                <td><input class="btn"type="button" value="1" onclick="get(1)"></td>
+                <td><input class="btn"type="button" value="2" onclick="get(2)"></td>
+                <td><input class="btn"type="button" value="3" onclick="get(3)"></td>
+                <td rowspan="5"><input class="btn" type="button" style="height:200px" value="=" onclick="calculate()"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" class="btn" value="0" style="width:200px" onclick="get(0)"></td>
+                <td ><input type="button" class="btn" value="." onclick="get('.')"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>
